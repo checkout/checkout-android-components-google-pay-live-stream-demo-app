@@ -64,10 +64,10 @@ internal class SampleViewModel @Inject constructor(
         _paymentSessionState.update { paymentSession }
     }
 
-    // STEP 1-2  Rewrite a bit the code as the following and call renderFlow() from the SampleScreen
     fun renderFlow(context: Context) {
         viewModelScope.launch(Dispatchers.IO) {
             createPaymentSession()
+            // STEP 1 Create the function for the CheckoutComponent
             withContext(Dispatchers.Main) {
                 createCheckoutComponent(context = context)
             }
@@ -77,7 +77,7 @@ internal class SampleViewModel @Inject constructor(
     // Step 2 Create the createCheckoutComponent
     private fun createCheckoutComponent(context: Context) {
         CoroutineScope(Dispatchers.IO).launch {
-            // Step 3 from the configuration
+            // Step 3 the configuration
             val configuration = CheckoutComponentConfiguration(
                 context = context,
                 paymentSession = PaymentSessionResponse(
