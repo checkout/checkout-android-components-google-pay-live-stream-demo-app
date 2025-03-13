@@ -17,7 +17,7 @@ gradleKtlint = "12.1.1"
 hilt = "2.51.1"
 moshiAdapters = "1.15.1"
 retrofit = "2.9.0"
-checkoutAndroidComponents = "1.0.0-beta-1"
+checkoutAndroidComponents = "1.0.0-beta-2"
 
 [libraries]
 # Android
