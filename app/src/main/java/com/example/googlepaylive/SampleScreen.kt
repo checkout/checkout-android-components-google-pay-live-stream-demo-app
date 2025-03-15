@@ -60,10 +60,3 @@ internal fun SampleScreen(
         }
     }
 }
-
-@Preview
-@Composable
-internal fun SampleScreenPreview() {
-    val uiState = remember { mutableStateOf(PaymentUiState()) }
-    SampleScreen({}, uiState)
-}

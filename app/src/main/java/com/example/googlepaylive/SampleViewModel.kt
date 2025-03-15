@@ -27,7 +27,7 @@ internal class SampleViewModel @Inject constructor(
         }
     }
 
-    suspend fun createPaymentSession() {
+    private suspend fun createPaymentSession() {
         _paymentSessionState.update { it.copy(isLoading = true, error = null) }
         val paymentSession = paymentSessionDelegate.createPaymentSession(
             paymentMethodSupported = listOf("card", "googlepay"),
