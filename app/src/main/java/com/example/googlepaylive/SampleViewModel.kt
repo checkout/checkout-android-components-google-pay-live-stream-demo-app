@@ -42,6 +42,10 @@ internal class SampleViewModel @Inject constructor(
     private val _component: MutableStateFlow<PaymentMethodComponent?> = MutableStateFlow(null)
     val component: StateFlow<PaymentMethodComponent?> = _component
 
+    // Step 7-1 and the isAvailable
+    private val _isAvailable = MutableStateFlow(false)
+    val isAvailable: StateFlow<Boolean> = _isAvailable
+
     // Step 9-3
     private val googlePayFlowCoordinator = MutableStateFlow<FlowCoordinator?>(null)
     fun setFlowCoordinator(wrapper: GooglePayFlowCoordinator) {
@@ -116,6 +120,9 @@ internal class SampleViewModel @Inject constructor(
 //                val flowComponent = checkoutComponents.create(PaymentMethodName.Card)
 //                val flowComponent = checkoutComponents.create(PaymentMethodName.GooglePay)
                 _component.update { flowComponent }
+
+                val isAvailable = flowComponent.isAvailable()
+                _isAvailable.update { isAvailable }
 
             } catch (checkoutError: CheckoutError) {
                 _paymentSessionState.update { it.copy(error = checkoutError.toString()) }
