@@ -19,7 +19,6 @@ import com.checkout.components.wallet.wrapper.GooglePayFlowCoordinator
 import com.example.googlepaylive.screen.PaymentSessionDelegate
 import com.example.googlepaylive.screen.PaymentUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -35,9 +34,6 @@ internal class SampleViewModel @Inject constructor(
     private val _paymentSessionState = MutableStateFlow(PaymentUiState())
     val paymentSessionState: StateFlow<PaymentUiState> = _paymentSessionState
 
-    // Step 6 we need something that holds the checkout components
-    private val checkoutComponents: MutableStateFlow<CheckoutComponents?> = MutableStateFlow(null)
-
     // Step 7 and the components ... to be added in the SampleScreen
     private val _component: MutableStateFlow<PaymentMethodComponent?> = MutableStateFlow(null)
     val component: StateFlow<PaymentMethodComponent?> = _component
@@ -48,6 +44,8 @@ internal class SampleViewModel @Inject constructor(
 
     // Step 9-3
     private val googlePayFlowCoordinator = MutableStateFlow<FlowCoordinator?>(null)
+    private val checkoutComponents: MutableStateFlow<CheckoutComponents?> = MutableStateFlow(null)
+
     fun setFlowCoordinator(wrapper: GooglePayFlowCoordinator) {
         googlePayFlowCoordinator.value = wrapper
     }
@@ -80,7 +78,7 @@ internal class SampleViewModel @Inject constructor(
 
     // Step 2 Create the createCheckoutComponent
     private fun createCheckoutComponent(context: Context) {
-        CoroutineScope(Dispatchers.IO).launch {
+        viewModelScope.launch(Dispatchers.IO) {
             // Step 3 the configuration
             val configuration = CheckoutComponentConfiguration(
                 context = context,
