@@ -29,9 +29,9 @@ internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewM
     SampleScreen(
         { viewModel.renderFlow(context) },
         uiState,
+        // Step 6-3
         checkoutComponent,
         isAvailable,
-
         )
 }
 
@@ -39,7 +39,7 @@ internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewM
 internal fun SampleScreen(
     onCreatePaymentSessionButtonClick: () -> Unit,
     uiState: State<PaymentUiState>,
-    // Step 6-3
+    // Step 6-4
     component: State<PaymentMethodComponent?>,
     isAvailable: State<Boolean>
 ) {
@@ -53,7 +53,7 @@ internal fun SampleScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Button(onClick = onCreatePaymentSessionButtonClick) {
-                Text(text = "Create Payment Session")
+                Text(text = "Show Payment Component")
             }
             if (uiState.value.isLoading) {
                 Text("Loading...")
@@ -64,7 +64,7 @@ internal fun SampleScreen(
                     textAlign = TextAlign.Center,
                 )
             }
-            // Step 6-4
+            // Step 6-5
             if (isAvailable.value) {
                 component.value?.Render()
             }
