@@ -9,15 +9,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SampleActivity : ComponentActivity() {
-    // Step 9 wallet is not inflating beacuse is expecting the coordinator
+    // Step 7-3
     private val viewModel: SampleViewModel by viewModels()
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Step 9-1 add this here THEN move to the VM
+        // Step 7-4 add this here THEN implement the missing methods in VM
         val googlePayFlowCoordinator = GooglePayFlowCoordinator(
             context = this,
             handleActivityResult = { resultCode, data ->

@@ -34,22 +34,21 @@ internal class SampleViewModel @Inject constructor(
     private val _paymentSessionState = MutableStateFlow(PaymentUiState())
     val paymentSessionState: StateFlow<PaymentUiState> = _paymentSessionState
 
-    // Step 7 and the components ... to be added in the SampleScreen
+    // Step 6 Store component and isAvailable as StateFlow
     private val _component: MutableStateFlow<PaymentMethodComponent?> = MutableStateFlow(null)
     val component: StateFlow<PaymentMethodComponent?> = _component
-
-    // Step 7-1 and the isAvailable
     private val _isAvailable = MutableStateFlow(false)
     val isAvailable: StateFlow<Boolean> = _isAvailable
 
-    // Step 9-3
-    private val googlePayFlowCoordinator = MutableStateFlow<FlowCoordinator?>(null)
+    // Step 7 wallet is not inflating because is expecting the coordinator
     private val checkoutComponents: MutableStateFlow<CheckoutComponents?> = MutableStateFlow(null)
+    private val googlePayFlowCoordinator = MutableStateFlow<FlowCoordinator?>(null)
 
+    // Step 7-5 Implement setFlowCoordinator
     fun setFlowCoordinator(wrapper: GooglePayFlowCoordinator) {
         googlePayFlowCoordinator.value = wrapper
     }
-
+    // Step 7-6 Implement setFlowCoordinator
     fun handleActivityResult(
         resultCode: Int,
         data: String,
@@ -89,7 +88,7 @@ internal class SampleViewModel @Inject constructor(
                 ),
                 publicKey = BuildConfig.SANDBOX_PUBLIC_KEY,
                 environment = Environment.SANDBOX,
-                // Step 9-4 add the flowCoordinator ... run it an fail since is missing something in the manifest
+                // Step 7-1 add the flowCoordinator as map
                 flowCoordinators = googlePayFlowCoordinator.value?.let {
                     mapOf(PaymentMethodName.GooglePay to it)
                 } ?: emptyMap(),
@@ -111,16 +110,18 @@ internal class SampleViewModel @Inject constructor(
             // Step 4 Create the component factory
             try {
                 val checkoutComponents = CheckoutComponentsFactory(config = configuration).create()
-                this@SampleViewModel.checkoutComponents.update { checkoutComponents }
                 // Step 5 Create the component
                 val flowComponent = checkoutComponents.create(ComponentName.Flow)
                 // Step 5-2 or one of the option below
 //                val flowComponent = checkoutComponents.create(PaymentMethodName.Card)
 //                val flowComponent = checkoutComponents.create(PaymentMethodName.GooglePay)
-                _component.update { flowComponent }
 
-                val isAvailable = flowComponent.isAvailable()
-                _isAvailable.update { isAvailable }
+                // Step 7-2 update the factory
+                this@SampleViewModel.checkoutComponents.update { checkoutComponents }
+
+                // Step 6-1 Update component and isAvailable
+                _component.update { flowComponent }
+                _isAvailable.update { flowComponent.isAvailable() }
 
             } catch (checkoutError: CheckoutError) {
                 _paymentSessionState.update { it.copy(error = checkoutError.toString()) }
