@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <!--   Step 5-3  show that we already add the meta-data that enables Gpay on the app  -->
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />
