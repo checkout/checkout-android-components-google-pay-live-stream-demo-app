@@ -20,7 +20,7 @@ import com.example.googlepaylive.screen.PaymentUiState
 
 @Composable
 internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewModel>()) {
-    // Step 6-2  adding the component and isAvailable to the SampleScreen
+    // STEP 6-3  adding the component and isAvailable to the SampleScreen
     val checkoutComponent = viewModel.component.collectAsState()
     val isAvailable = viewModel.isAvailable.collectAsState()
 
@@ -29,7 +29,7 @@ internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewM
     SampleScreen(
         { viewModel.renderFlow(context) },
         uiState,
-        // Step 6-3
+        // STEP 6-4
         checkoutComponent,
         isAvailable,
     )
@@ -39,7 +39,7 @@ internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewM
 internal fun SampleScreen(
     onCreatePaymentSessionButtonClick: () -> Unit,
     uiState: State<PaymentUiState>,
-    // Step 6-4
+    // STEP 6-5
     component: State<PaymentMethodComponent?>,
     isAvailable: State<Boolean>,
 ) {
@@ -64,7 +64,7 @@ internal fun SampleScreen(
                     textAlign = TextAlign.Center,
                 )
             }
-            // Step 6-5
+            // STEP 6-6
             if (isAvailable.value) {
                 component.value?.Render()
             }
