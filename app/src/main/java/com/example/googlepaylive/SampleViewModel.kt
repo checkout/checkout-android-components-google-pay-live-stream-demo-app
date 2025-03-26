@@ -119,7 +119,7 @@ internal class SampleViewModel
                 // STEP 4 Create the component factory
                 try {
                     val checkoutComponents = CheckoutComponentsFactory(config = configuration).create()
-                    // STEP 5-1 Create the component to handle all the payment option
+                    // STEP 5-1 Create the component to handle all the payment method options
                     val flowComponent = checkoutComponents.create(ComponentName.Flow)
                     // STEP 5-2 or one of the option below for the single payment method
 //                val flowComponent = checkoutComponents.create(PaymentMethodName.Card)
