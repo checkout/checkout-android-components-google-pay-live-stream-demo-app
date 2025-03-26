@@ -10,13 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.googlepaylive.screen.PaymentUiState
 
@@ -32,7 +29,7 @@ internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewM
 
 @Composable
 internal fun SampleScreen(
-    onCreatePaymentSessionButtonClick: () -> Unit,
+    onShowPaymentComponentButtonClick: () -> Unit,
     uiState: State<PaymentUiState>,
 ) {
     Surface(
@@ -44,7 +41,7 @@ internal fun SampleScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = onCreatePaymentSessionButtonClick) {
+            Button(onClick = onShowPaymentComponentButtonClick) {
                 Text(text = "Show Payment Component")
             }
             if (uiState.value.isLoading) {
@@ -55,7 +52,6 @@ internal fun SampleScreen(
                     text = "Error: $it",
                     textAlign = TextAlign.Center,
                 )
-
             }
         }
     }

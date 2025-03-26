@@ -21,6 +21,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Google pay Live"
+rootProject.name = "Flow Android components"
 include(":app")
  
