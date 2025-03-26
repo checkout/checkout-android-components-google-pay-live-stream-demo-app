@@ -16,12 +16,13 @@ class SampleActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         // STEP 7-5 Create the flow coordinator here, then implement the missing methods in ViewModel
-        val googlePayFlowCoordinator = GooglePayFlowCoordinator(
-            context = this,
-            handleActivityResult = { resultCode, data ->
-                viewModel.handleActivityResult(resultCode, data)
-            },
-        )
+        val googlePayFlowCoordinator =
+            GooglePayFlowCoordinator(
+                context = this,
+                handleActivityResult = { resultCode, data ->
+                    viewModel.handleActivityResult(resultCode, data)
+                },
+            )
 
         viewModel.setFlowCoordinator(googlePayFlowCoordinator)
 

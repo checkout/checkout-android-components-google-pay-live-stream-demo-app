@@ -37,7 +37,7 @@ internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewM
 
 @Composable
 internal fun SampleScreen(
-    onCreatePaymentSessionButtonClick: () -> Unit,
+    onShowPaymentComponentButtonClick: () -> Unit,
     uiState: State<PaymentUiState>,
     // STEP 6-5
     component: State<PaymentMethodComponent?>,
@@ -52,7 +52,7 @@ internal fun SampleScreen(
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = onCreatePaymentSessionButtonClick) {
+            Button(onClick = onShowPaymentComponentButtonClick) {
                 Text(text = "Show Payment Component")
             }
             if (uiState.value.isLoading) {
