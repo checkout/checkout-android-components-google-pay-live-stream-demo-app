@@ -32,7 +32,7 @@ internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewM
         // Step 6-3
         checkoutComponent,
         isAvailable,
-        )
+    )
 }
 
 @Composable
@@ -41,7 +41,7 @@ internal fun SampleScreen(
     uiState: State<PaymentUiState>,
     // Step 6-4
     component: State<PaymentMethodComponent?>,
-    isAvailable: State<Boolean>
+    isAvailable: State<Boolean>,
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),

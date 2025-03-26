@@ -16,12 +16,13 @@ class SampleActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         // Step 7-4 add this here THEN implement the missing methods in VM
-        val googlePayFlowCoordinator = GooglePayFlowCoordinator(
-            context = this,
-            handleActivityResult = { resultCode, data ->
-                viewModel.handleActivityResult(resultCode, data)
-            },
-        )
+        val googlePayFlowCoordinator =
+            GooglePayFlowCoordinator(
+                context = this,
+                handleActivityResult = { resultCode, data ->
+                    viewModel.handleActivityResult(resultCode, data)
+                },
+            )
 
         viewModel.setFlowCoordinator(googlePayFlowCoordinator)
 
