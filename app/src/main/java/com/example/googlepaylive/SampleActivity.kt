@@ -9,13 +9,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SampleActivity : ComponentActivity() {
-    // Step 7-3
+    // STEP 7-4
     private val viewModel: SampleViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Step 7-4 add this here THEN implement the missing methods in VM
+        // STEP 7-5 Create the flow coordinator here, then implement the missing methods in ViewModel
         val googlePayFlowCoordinator =
             GooglePayFlowCoordinator(
                 context = this,

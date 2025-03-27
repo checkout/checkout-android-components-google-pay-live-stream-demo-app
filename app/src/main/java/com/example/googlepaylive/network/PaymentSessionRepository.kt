@@ -41,6 +41,7 @@ internal class PaymentSessionRepository
 
         private companion object {
             private val SECRET_KEY = BuildConfig.SANDBOX_SECRET_KEY
+            private val PROCESSING_CHANNEL = BuildConfig.PROCESSING_CHANNEL
             private const val QUANTITY = 1
             private const val UNIT_PRICE = 1
             private val PHONE =
@@ -63,7 +64,7 @@ internal class PaymentSessionRepository
                     amount = (QUANTITY * UNIT_PRICE).toLong(),
                     currency = Currency.GBP,
                     reference = "REFERENCE",
-                    processingChannelID = null,
+                    processingChannelID = PROCESSING_CHANNEL,
                     billing = AddressAndPhoneNumber(ADDRESS, PHONE),
                     shipping = AddressAndPhoneNumber(ADDRESS, PHONE),
                     customer =
@@ -72,8 +73,8 @@ internal class PaymentSessionRepository
                             name = "customerName",
                             phone = PHONE,
                         ),
-                    successUrl = "https://www.checkout.com/",
-                    failureUrl = "https://www.checkout.com/",
+                    successUrl = "https://www.success.com/",
+                    failureUrl = "https://www.failure.com/",
                     enabledPaymentMethods = paymentMethodSupportedList,
                     items =
                         listOf(
