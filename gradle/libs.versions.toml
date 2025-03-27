@@ -1,0 +1,59 @@
+[versions]
+agp = "8.2.1"
+hiltNavigationCompose = "1.2.0"
+kotlin = "2.0.0"
+junit = "4.13.2"
+appcompat-v7 = "28.0.0"
+core-ktx = "1.13.1"
+androidx-test-ext-junit = "1.1.5"
+androidx-test-espresso-espresso-core = "3.5.1"
+lifecycle-runtime-ktx = "2.8.0"
+activity-compose = "1.9.0"
+compose-bom = "2024.05.00"
+loggingInterceptor = "4.12.0"
+material3 = "1.2.1"
+material = "1.11.0"
+gradleKtlint = "12.1.1"
+hilt = "2.51.1"
+moshiAdapters = "1.15.1"
+retrofit = "2.9.0"
+checkoutAndroidComponents = "1.0.0-beta-2"
+
+[libraries]
+# Android
+appcompat-v7 = { group = "com.android.support", name = "appcompat-v7", version.ref = "appcompat-v7" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
+
+# DI
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
+
+# Compose
+androidx-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
+androidx-material = { module = "com.google.android.material:material", version.ref = "material" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+ui = { group = "androidx.compose.ui", name = "ui" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+
+# Networking
+converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
+moshi-adapters = { module = "com.squareup.moshi:moshi-adapters", version.ref = "moshiAdapters" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshiAdapters" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+
+# Flow
+checkout-android-components = { module = "com.checkout:checkout-android-components", version.ref = "checkoutAndroidComponents" }
+
+[plugins]
+androidLibrary = { id = "com.android.library", version.ref = "agp" }
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+gradleKtlint = { id ="org.jlleitschuh.gradle.ktlint", version.ref = "gradleKtlint" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
