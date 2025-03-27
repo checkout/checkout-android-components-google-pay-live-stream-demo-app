@@ -39,6 +39,11 @@ android {
                 "SANDBOX_SECRET_KEY",
                 this["sandbox.components.secret_key"].toString(),
             )
+            buildConfigField(
+                "String",
+                "PROCESSING_CHANNEL",
+                this["sandbox.components.processing_channel"].toString(),
+            )
         }
     }
 
