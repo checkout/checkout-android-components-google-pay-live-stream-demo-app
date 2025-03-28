@@ -4,7 +4,7 @@
 ![BETA](https://img.shields.io/badge/status-BETA-yellow)
 # 📱 Sample Android App – Flow SDK Integration Demo
 
-This sample Android project demonstrates how to integrate the `Flow SDK` into your application. It showcases the basic setup, initialisation, and usage of key features provided by the SDK.
+As part of the [live coding demo](https://www.youtube.com/watch?v=_GYgrWe_qDA&t=14s) this sample Android project demonstrates how to integrate the `Flow SDK` into your application. It showcases the basic setup, initialisation, and usage of key features provided by the SDK.
   
 ---  
 
@@ -29,7 +29,7 @@ This sample Android project demonstrates how to integrate the `Flow SDK` into yo
 
 1. **Clone the repo**
  ```bash  
-  git clone https://github.com/checkout/{the_final_url_once_public}.git
+  git clone https://github.com/checkout/checkout-android-components-google-pay-live-stream-demo-app.git
   ```
 
 2. **Sync Gradle & Build the Project**
@@ -68,11 +68,12 @@ Each step includes inline comments explaining what's happening and why.
 
 
 👉 For full SDK documentation, check: [Flow SDK Docs](https://www.checkout.com/docs/payments/accept-payments/accept-a-payment-on-your-mobile-app/get-started-with-flow-for-mobile)
+
 👉 For full SDK reference, check: [Flow Mobile Library reference](https://www.checkout.com/docs/payments/accept-payments/accept-a-payment-on-your-mobile-app/flow-for-mobile-library-reference/android)
 
 
 
-**⚠️ ## Notes / Limitations** <br>
+**⚠️ Notes / Limitations** <br>
 -   This demo uses a simplified architecture for clarity.
 -   Error handling and edge cases are intentionally minimal.
 -   Please do not use this as a production app template.
