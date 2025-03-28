@@ -5,7 +5,7 @@
 ![license](https://img.shields.io/github/license/checkout/checkout-android-components-google-pay-live-stream-demo-app.svg)
 # 📱 Sample Android App – Flow SDK Integration Demo
 
-As part of the [live coding demo](https://www.youtube.com/watch?v=_GYgrWe_qDA&t=14s) this sample Android project demonstrates how to integrate the `Flow SDK` into your application. It showcases the basic setup, initialisation, and usage of key features provided by the SDK.
+As part of the [live coding demo](https://www.youtube.com/watch?v=_GYgrWe_qDA&t=14s), this sample Android project demonstrates how to integrate the `Flow SDK` into your application. It showcases the basic setup, initialisation, and usage of key features provided by the SDK.
   
 ---  
 
