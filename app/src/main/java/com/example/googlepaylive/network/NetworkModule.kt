@@ -36,12 +36,12 @@ internal object NetworkModule {
     internal fun paymentSessionClient(
         moshi: Moshi,
         httpClient: OkHttpClient,
-    ): PaymentSessionsApi =
+    ): PaymentSessionApi =
         Retrofit
             .Builder()
             .baseUrl("https://api.sandbox.checkout.com/")
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(httpClient)
             .build()
-            .create(PaymentSessionsApi::class.java)
+            .create(PaymentSessionApi::class.java)
 }
