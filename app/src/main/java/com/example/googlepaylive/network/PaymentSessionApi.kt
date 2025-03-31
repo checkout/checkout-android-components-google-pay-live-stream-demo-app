@@ -5,7 +5,7 @@ import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
 
-internal interface PaymentSessionsApi {
+internal interface PaymentSessionApi {
     @POST("/payment-sessions")
     suspend fun createPaymentSession(
         @Header("Content-Type") contentType: String = "application/json",

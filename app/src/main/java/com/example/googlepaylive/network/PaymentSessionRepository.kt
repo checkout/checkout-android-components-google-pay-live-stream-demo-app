@@ -15,7 +15,7 @@ import javax.inject.Inject
 internal class PaymentSessionRepository
     @Inject
     constructor(
-        private val paymentSessionApi: PaymentSessionsApi,
+        private val paymentSessionApi: PaymentSessionApi,
     ) {
         suspend fun createPaymentSession(
             token: String = "Bearer $SECRET_KEY",

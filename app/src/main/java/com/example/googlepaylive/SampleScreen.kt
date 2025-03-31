@@ -18,6 +18,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.checkout.components.interfaces.api.PaymentMethodComponent
 import com.example.googlepaylive.screen.PaymentUiState
 
+@Suppress("FunctionName")
 @Composable
 internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewModel>()) {
     // STEP 6-3  adding the component and isAvailable to the SampleScreen
@@ -35,6 +36,7 @@ internal fun SampleScreen(viewModel: SampleViewModel = hiltViewModel<SampleViewM
     )
 }
 
+@Suppress("FunctionName")
 @Composable
 internal fun SampleScreen(
     onShowPaymentComponentButtonClick: () -> Unit,
