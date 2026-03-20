@@ -22,7 +22,7 @@ As part of the [live coding demo](https://www.youtube.com/watch?v=_GYgrWe_qDA&t=
 - Android Studio **Ladybug or newer**
 - Gradle **8.x**
 - Android SDK **minSdk 21+, targetSdk 35**
-- Kotlin **1.9+**
+- Kotlin **2.2.+**
 
 ---  
 
