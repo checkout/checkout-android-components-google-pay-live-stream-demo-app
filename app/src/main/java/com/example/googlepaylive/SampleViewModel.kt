@@ -90,8 +90,7 @@ internal class SampleViewModel
                         paymentSession =
                             PaymentSessionResponse(
                                 id = _paymentSessionState.value.paymentSessionResponse.id,
-                                paymentSessionToken = _paymentSessionState.value.paymentSessionResponse.paymentSessionToken,
-                                paymentSessionSecret = _paymentSessionState.value.paymentSessionResponse.paymentSessionSecret,
+                                secret = _paymentSessionState.value.paymentSessionResponse.secret,
                             ),
                         publicKey = BuildConfig.SANDBOX_PUBLIC_KEY,
                         environment = Environment.SANDBOX,
